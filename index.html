@@ -10,22 +10,44 @@
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #1b0f2f, #2e1a47);
       color: white;
-      text-align: center;
     }
     header {
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .nav-links a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    .nav-links a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .hero {
+      text-align: center;
       padding: 60px 20px;
     }
     h1 {
-      font-size: 48px;
+      font-size: 42px;
       margin-bottom: 10px;
     }
     h2 {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: normal;
       opacity: 0.9;
     }
     .buttons {
       margin-top: 40px;
+      text-align: center;
     }
     .buttons a {
       display: inline-block;
@@ -42,14 +64,16 @@
       border: 1px solid white;
     }
     section {
-      padding: 50px 20px;
+      padding: 40px 20px;
       max-width: 900px;
       margin: auto;
+      text-align: center;
     }
     footer {
       padding: 30px;
       font-size: 14px;
       opacity: 0.7;
+      text-align: center;
     }
   </style>
 </head>
@@ -57,6 +81,15 @@
 <body>
 
   <header>
+    <div class="logo">Privio</div>
+    <nav class="nav-links">
+      <a href="#">FAQ</a>
+      <a href="#">Support</a>
+      <a href="compte.html">Se connecter / S’inscrire</a>
+    </nav>
+  </header>
+
+  <div class="hero">
     <h1>Privio</h1>
     <h2>Exclusive & Private Call</h2>
 
@@ -64,12 +97,12 @@
       <a href="#">Découvrir les influenceurs</a>
       <a href="#" class="secondary">Devenir influenceur</a>
     </div>
-  </header>
+  </div>
 
   <section>
     <p>
       Privio est une plateforme privée de mise en relation entre clients et influenceurs vérifiés.
-      Réservez des appels audio ou vidéo, ou commandez des contenus digitaux personnalisés,
+      Réservation d’appels audio ou vidéo et achat de contenus digitaux personnalisés,
       en toute sécurité.
     </p>
     <p>
@@ -85,6 +118,3 @@
 
 </body>
 </html>
-
-
-
