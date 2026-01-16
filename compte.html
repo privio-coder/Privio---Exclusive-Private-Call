@@ -75,6 +75,54 @@
   <p style="margin-top:20px;">
     <a href="index.html">← Retour à l’accueil</a>
   </p>
+<script type="module">
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
+  /* 🔑 CONNEXION À SUPABASE */
+  const supabaseUrl = 'https://egrgrkwfkogtmewexivy.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVncmdya3dma29ndG1ld2V4aXZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg1NTkyMDQsImV4cCI6MjA4NDEzNTIwNH0.qBbYvu5bWIfJYLwX5b5xjssAaul6rIWRFaMshNZclok';
+
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
+  /* 🟣 INSCRIPTION */
+  document.getElementById('signup-btn').addEventListener('click', async () => {
+    const email = document.getElementById('signup-email').value;
+    const password = document.getElementById('signup-password').value;
+    const message = document.getElementById('signup-message');
+
+    message.textContent = 'Création du compte en cours…';
+
+    const { error } = await supabase.auth.signUp({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      message.textContent = error.message;
+    } else {
+      message.textContent = 'Compte créé ! Vérifie ton e-mail.';
+    }
+  });
+
+  /* 🔵 CONNEXION */
+  document.getElementById('login-btn').addEventListener('click', async () => {
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+    const message = document.getElementById('login-message');
+
+    message.textContent = 'Connexion en cours…';
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      message.textContent = error.message;
+    } else {
+      message.textContent = 'Connexion réussie !';
+    }
+  });
+</script>
 </body>
 </html>
