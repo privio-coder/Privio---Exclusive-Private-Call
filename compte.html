@@ -69,9 +69,7 @@
     <h2>Créer un compte</h2>
     <input type="email" placeholder="Votre e-mail">
     <input type="password" placeholder="Mot de passe">
-    <a href="index.html">
-      <button>Créer mon compte</button>
-    </a>
+    <button id="signup-btn">Créer mon compte</button>
   </div>
 
   <p style="margin-top:20px;">
@@ -82,8 +80,8 @@
 
 <script>
   // 🔑 Mets tes valeurs ici (Supabase > Settings > API)
-  const supabaseUrl = 'COLLE_ICI_TON_PROJECT_URL';
-  const supabaseKey = 'COLLE_ICI_TA_CLE_ANON_PUBLIC';
+  const supabaseUrl = "https://egrgrkwfkogtmewexivy.supabase.co";
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVncmdya3dma29ndG1ld2V4aXZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg1NTkyMDQsImV4cCI6MjA4NDEzNTIwNH0.qBbYvu5bWIfJYLwX5b5xjssAaul6rIWRFaMshNZclok";
 
   const sb = supabase.createClient(supabaseUrl, supabaseKey);
 
@@ -93,31 +91,14 @@
     const password = document.getElementById("signup-password").value;
     const message = document.getElementById("signup-message");
 
-    message.textContent = 'Création du compte en cours…';
+    message.textContent = "Création du compte en cours…";
 
     const { error } = await sb.auth.signUp({ email, password });
 
     if (error) {
-      message.textContent = 'Erreur : ' + error.message;
+      message.textContent = "Erreur : " + error.message;
     } else {
-      message.textContent = 'Compte créé ! Vérifie ton e-mail.';
-    }
-  });
-
-  // 🔵 CONNEXION
-  document.getElementById('login-btn').addEventListener('click', async () => {
-    const email = document.getElementById('login-email').value.trim();
-    const password = document.getElementById('login-password').value;
-    const message = document.getElementById('login-message');
-
-    message.textContent = 'Connexion en cours…';
-
-    const { error } = await sb.auth.signInWithPassword({ email, password });
-
-    if (error) {
-      message.textContent = 'Erreur : ' + error.message;
-    } else {
-      message.textContent = 'Connexion réussie !';
+      message.textContent = "Compte créé ! Vérifie ton e-mail.";
     }
   });
 </script>
